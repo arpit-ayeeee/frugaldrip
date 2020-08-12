@@ -1,3 +1,11 @@
 #head{
-    background-color: black;
+    opacity: 90%;
+    color: black;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+#card{
+    min-height: 390px;
+    margin-bottom: 20px;
 }

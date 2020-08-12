@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import{  Fade, Stagger} from 'react-animation-components';
+import './bread.css';
 
 function RenderLeader({leader, isLoading, errMess}){
     if(isLoading){
@@ -24,7 +25,7 @@ function RenderLeader({leader, isLoading, errMess}){
         return(
             <Media>
                     <Media left className="mr-5" >
-                        <Media object width="100px" height="100px" src={baseUrl + leader.image}></Media>
+                        <Media id="ldimg" object width="100px" height="100px" src={baseUrl + leader.image}></Media>
                     </Media>
                     <Media body>
                         <Media heading className="text-success">{leader.name}</Media>
@@ -50,7 +51,7 @@ function About(props) {
         return(
             <div className="container">
                 <div className="row">
-                    <Breadcrumb>
+                    <Breadcrumb id="bread">
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                         <BreadcrumbItem active>About Us</BreadcrumbItem>
                     </Breadcrumb>

@@ -7,6 +7,7 @@
  import { FadeTransform } from 'react-animation-components';
  import { Link } from 'react-router-dom';
 
+
  export const items = [
     {
       src: 'assets/images/tee.jpg',

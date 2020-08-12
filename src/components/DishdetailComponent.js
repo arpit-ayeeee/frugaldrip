@@ -5,6 +5,7 @@ import {Control, LocalForm, Errors} from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import{ FadeTransform, Fade, Stagger} from 'react-animation-components';
+import './bread.css';
 
 const required = (val) => val && val.length;
 const minlength = (len) => (val) => (val) && (val.length) >= len;
@@ -78,7 +79,7 @@ const DishDetail = (props) =>{
         return (
             <div className="container">
                 <div className="row">
-                    <Breadcrumb>
+                    <Breadcrumb id="bread">
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                         <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
                         <BreadcrumbItem>{props.dish.name}</BreadcrumbItem>

@@ -1,30 +1,32 @@
  //FUNCTIONAL COMPONENT DOESN'T HAVE ANY STATE, WE JUST USE THE PROPS
 import React from 'react';//Not a class component, we'll use it as a functional component
-import { Card, CardImg, Breadcrumb, BreadcrumbItem, CardHeader } from 'reactstrap';
+import { Card, CardImg, Breadcrumb, BreadcrumbItem, CardHeader, CardTitle, CardSubtitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent'; 
 import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 import './menu.css';
+import './bread.css';
 
     function RenderMenuItem({dish, Onclick}){
         return(//Using Link, this is how we use route parameters, by removing all this onclick jsx. We used back-quotes so cause it's url, so that it'll be changed
-            <Card>
-                <Link to={`/menu/${dish.id}`}>
-                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name}/>
-                        <CardHeader id="head" className="text-secondary text-center">{dish.name}</CardHeader>
-                </Link>
-            </Card>
+                <Card id="card">
+                    <Link to={`/menu/${dish.id}`}>
+                        <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name}/>
+                            <CardSubtitle id="head" className="text-center align-self-center">{dish.name}</CardSubtitle>
+                    </Link>
+                </Card>
         ); 
     };
 
     const Menu = (props) => {
         const menu = props.dishes.dishes.map((dish) => {//arrow function usage
-            return (
-                <div key={dish.id} className="col-6 col-md-4">
-                     <RenderMenuItem dish={dish} />
-                </div>//This ends up contructing a list of items with it design
-            );
-        });
+                            return (
+                                <div key={dish.id} className="col-6 col-md-4">
+                                        <RenderMenuItem dish={dish} />
+                                </div>
+                            );
+                        })
         
         if(props.dishes.isLoading){    //says if isLoading is true, we'll show the loading spinner 
             return (                       //Cause initially in the dishes state the isLoading is true
@@ -48,18 +50,18 @@ import './menu.css';
             return (//Given below is how we use breadcrumb using reactstrap 
                 <div className="container">
                     <div className="row">
-                        <Breadcrumb>
+                        <Breadcrumb id="bread">
                             <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                             <BreadcrumbItem active>Menu</BreadcrumbItem>
                         </Breadcrumb>
-                        <div className=" col-12">
+                        <div className="col-12">
                             <h3>Menu</h3>
                             <hr /> 
                         </div>
                     </div>
                     <div className="row">
-                        { menu }
-                    </div> 
+                            {menu}
+                    </div>
                 </div>
             );                  
     } 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {Control,  Form, Errors} from 'react-redux-form';
+import './bread.css';
  
 
 const required = (val) => val && val.length;    //This const variable checks to see the value passed a parameter is greater than zero
@@ -37,7 +38,7 @@ class Contact extends Component{
         return(
             <div className="container">
                 <div className="row">
-                        <Breadcrumb>
+                        <Breadcrumb id="bread">
                             <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                             <BreadcrumbItem active>Contacts</BreadcrumbItem>
                         </Breadcrumb>
